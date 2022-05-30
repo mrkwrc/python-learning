@@ -4,9 +4,9 @@ import re, pyperclip, calendar # I used a calendar to make shorter the leap year
 
 dateRegex = re.compile(r'''(
 	(\d+)                   # alternativly (\d|[0-2]\d|3[0-1])
-	/
+	[/.\-,\\:_]
 	(\d+)                   # alternativly (\d|0[1-2])
-	/
+	[/.\-,\\:_]
 	(\d{4})
     )''', re.VERBOSE)
 
@@ -14,7 +14,6 @@ def DateValidation(date):
   month_range_30=['04','06','09','11']
   
   for date in dateRegex.findall(txt):
-    dateRegex.group(1)
     valid_date=True
     day = int(date[1])
     month = int(date[2])
